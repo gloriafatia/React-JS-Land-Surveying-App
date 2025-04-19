@@ -7,25 +7,28 @@ const About = () => {
   });
 
   return (
-    <section className="min-h-screen bg-[#f8f9fa] py-20">
-      <div className="max-w-7xl mx-auto px-6">
-        {/* About Section */}
-        <div className="text-center mb-16">
-          <h1 className="text-5xl font-extrabold text-[#f39c12] mb-4 drop-shadow-lg">
+    <section className="bg-[#f8f9fa] py-16 sm:py-20 lg:py-28">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header Section */}
+        <div className="text-center mb-12">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#f39c12] drop-shadow-md mb-4">
             {state.subHeader}
           </h1>
-          <p className="text-gray-700 text-lg max-w-3xl mx-auto">
+          <p className="text-gray-700 text-base sm:text-lg md:text-xl max-w-4xl mx-auto">
             {state.text}
           </p>
-          <div className="w-24 h-1 bg-[#f39c12] mx-auto mt-6 rounded-full" />
+          <div className="w-20 h-1 bg-[#f39c12] mx-auto mt-6 rounded-full" />
         </div>
-        {/* Background and Card */}
-        <div className="bg-white p-10 rounded-lg shadow-lg border border-[#e0e0e0]">
-          <h3 className="text-2xl font-semibold text-[#333] mb-6">Our Mission</h3>
-          <p className="text-gray-600 text-base leading-relaxed">
-            Geo Matrix Solutions is driven by the mission to provide top-tier surveying and engineering services. 
-            Our team of experts strives to implement cutting-edge technologies to deliver exceptional results 
-            and ensure the highest level of precision in every project we undertake. We are committed to improving the 
+
+        {/* Card Section */}
+        <div className="bg-white px-6 py-8 sm:px-10 sm:py-10 rounded-xl shadow-md border border-gray-200 transition-all duration-300">
+          <h3 className="text-2xl sm:text-3xl font-semibold text-gray-800 mb-4 text-center sm:text-left">
+            Our Mission
+          </h3>
+          <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
+            Geo Matrix Solutions is driven by the mission to provide top-tier surveying and engineering services.
+            Our team of experts strives to implement cutting-edge technologies to deliver exceptional results
+            and ensure the highest level of precision in every project we undertake. We are committed to improving the
             infrastructure and environmental sustainability of the regions we serve.
           </p>
         </div>

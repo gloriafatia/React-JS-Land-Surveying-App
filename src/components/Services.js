@@ -35,45 +35,47 @@ const Services = () => {
   ]);
 
   return (
-    <section className="services py-20 bg-[#f8f9fa]">
-      <div className="container mx-auto px-6">
+    <section className="py-20 bg-gray-100">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
-        <div className="text-center mb-16">
-          <h1 className="text-5xl font-extrabold text-[#f39c12] mb-4 drop-shadow-lg">
+        <div className="text-center mb-12">
+          <h1 className="text-4xl sm:text-5xl font-extrabold text-yellow-500 mb-4 drop-shadow-md">
             {header.mainHeeader}
           </h1>
-          <p className="text-gray-600 text-lg max-w-3xl mx-auto">
+          <p className="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto">
             {header.text}
           </p>
-          <div className="w-24 h-1 bg-[#f39c12] mx-auto mt-6 rounded-full" />
+          <div className="w-20 h-1 bg-yellow-500 mx-auto mt-6 rounded-full" />
         </div>
 
-        {/* Services Grid Section */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-          {state.map((info) => {
-            const Icon = info.icon;
+        {/* Cards Grid */}
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          {state.map((service) => {
+            const Icon = service.icon;
             let path = "/";
-            if (info.heading === "Surveying") path = "/surveying";
-            else if (info.heading === "Geology/Geophysics") path = "/geology";
-            else if (info.heading === "Inspection") path = "/inspection";
+            if (service.heading === "Surveying") path = "/surveying";
+            else if (service.heading === "Geology/Geophysics") path = "/geology";
+            else if (service.heading === "Inspection") path = "/inspection";
 
             return (
-              <div key={info.id} className="service-card group">
-                <Link to={path} className="block relative rounded-lg overflow-hidden">
-                  <div
-                    className="service-image h-80 bg-cover bg-center group-hover:scale-105 transition-transform duration-300 rounded-lg"
-                    style={{
-                      backgroundImage: `url(${info.image})`,
-                    }}
-                  >
-                    <div className="service-overlay absolute inset-0 bg-black opacity-50 transition-opacity duration-300 group-hover:opacity-0"></div>
-                    <Icon className="service-icon text-4xl text-white absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" />
-                  </div>
-                  <div className="service-info p-6 bg-white rounded-b-lg">
-                    <h3 className="text-xl font-semibold text-[#f39c12] group-hover:underline">{info.heading}</h3>
-                  </div>
-                </Link>
-              </div>
+              <Link
+                key={service.id}
+                to={path}
+                className="group rounded-xl overflow-hidden bg-white shadow-md hover:shadow-xl transition-shadow duration-300"
+              >
+                <div
+                  className="relative h-64 sm:h-72 md:h-80 bg-cover bg-center transform group-hover:scale-105 transition-transform duration-300"
+                  style={{ backgroundImage: `url(${service.image})` }}
+                >
+                  <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-10 transition duration-300" />
+                  <Icon className="absolute text-white text-5xl top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10" />
+                </div>
+                <div className="p-5 text-center">
+                  <h3 className="text-lg sm:text-xl font-semibold text-yellow-500 group-hover:underline">
+                    {service.heading}
+                  </h3>
+                </div>
+              </Link>
             );
           })}
         </div>
