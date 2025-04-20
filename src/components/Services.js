@@ -1,11 +1,9 @@
 import React from "react";
-import { IoSearchCircle } from "react-icons/io5";
-import { SiGooglesearchconsole } from "react-icons/si";
-import { GrInspect } from "react-icons/gr";
 import { Link } from "react-router-dom";
-import surveying from "../assets/Surveying.jpg";
-import geology from "../assets/Geology.jpg";
-import inspection from "../assets/Inspection.jpg";
+import gjeofizik from "../gjeofizike/1.jpg";
+import lasarLidar from "../scanning/2.jpg";
+import markshajderi from "../markshajderi/markshajderi.jpg";
+import topografi from "../topografi/9.jpg";
 
 const Services = () => {
   const [header] = React.useState({
@@ -16,21 +14,23 @@ const Services = () => {
   const [state] = React.useState([
     {
       id: 1,
-      icon: IoSearchCircle,
-      heading: "Surveying",
-      image: surveying,
+      heading: "Gjeofizik",
+      image: gjeofizik,
     },
     {
       id: 2,
-      icon: SiGooglesearchconsole,
-      heading: "Geology/Geophysics",
-      image: geology,
+      heading: "3D LaserLidar dhe Photogrametry",
+      image: lasarLidar,
     },
     {
       id: 3,
-      icon: GrInspect,
-      heading: "Inspection",
-      image: inspection,
+      heading: "Markshajderi",
+      image: markshajderi,
+    },
+    {
+      id: 4,
+      heading: "Topografi",
+      image: topografi,
     },
   ]);
 
@@ -39,43 +39,53 @@ const Services = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl sm:text-5xl font-extrabold text-yellow-500 mb-4 drop-shadow-md">
+          <h1
+            className="text-4xl sm:text-5xl font-extrabold text-[#f27f32] mb-4 drop-shadow-md"
+          >
             {header.mainHeeader}
           </h1>
           <p className="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto">
             {header.text}
           </p>
-          <div className="w-20 h-1 bg-yellow-500 mx-auto mt-6 rounded-full" />
+          <div className="w-20 h-1 bg-[#f27f32] mx-auto mt-6 rounded-full" />
         </div>
 
         {/* Cards Grid */}
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {state.map((service) => {
-            const Icon = service.icon;
+        <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 xl:grid-cols-4">
+          {state.map((service, index) => {
             let path = "/";
-            if (service.heading === "Surveying") path = "/surveying";
-            else if (service.heading === "Geology/Geophysics") path = "/geology";
-            else if (service.heading === "Inspection") path = "/inspection";
+            if (service.heading === "Gjeofizik") path = "/geology";
+            else if (service.heading === "3D LaserLidar dhe Photogrametry")
+              path = "/3d-lidar";
+            else if (service.heading === "Markshajderi") path = "/markshajderi";
+            else if (service.heading === "Topografi") path = "/topografi";
+
+            const extraMargin =
+              index === 0
+                ? "xl:ml-4"
+                : index === state.length - 1
+                ? "xl:mr-4"
+                : "";
 
             return (
-              <Link
-                key={service.id}
-                to={path}
-                className="group rounded-xl overflow-hidden bg-white shadow-md hover:shadow-xl transition-shadow duration-300"
-              >
-                <div
-                  className="relative h-64 sm:h-72 md:h-80 bg-cover bg-center transform group-hover:scale-105 transition-transform duration-300"
-                  style={{ backgroundImage: `url(${service.image})` }}
+              <div key={service.id} className={`h-[400px] ${extraMargin}`}>
+                <Link
+                  to={path}
+                  className="group rounded-xl overflow-hidden bg-white shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col h-full"
                 >
-                  <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-10 transition duration-300" />
-                  <Icon className="absolute text-white text-5xl top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10" />
-                </div>
-                <div className="p-5 text-center">
-                  <h3 className="text-lg sm:text-xl font-semibold text-yellow-500 group-hover:underline">
-                    {service.heading}
-                  </h3>
-                </div>
-              </Link>
+                  <div
+                    className="relative h-2/3 bg-cover bg-center transform group-hover:scale-105 transition-transform duration-300"
+                    style={{ backgroundImage: `url(${service.image})` }}
+                  >
+                    <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-10 transition duration-300" />
+                  </div>
+                  <div className="p-5 text-center h-1/3 flex items-center justify-center">
+                    <h3 className="text-lg sm:text-xl font-semibold text-yellow-500 group-hover:underline">
+                      {service.heading}
+                    </h3>
+                  </div>
+                </Link>
+              </div>
             );
           })}
         </div>

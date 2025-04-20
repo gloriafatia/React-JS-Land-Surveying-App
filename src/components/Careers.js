@@ -2,11 +2,11 @@ import React from 'react';
 
 const Careers = () => {
   return (
-    <section className="bg-[#f8f9fa] py-16 sm:py-20 lg:py-28">
+    <section id="careers" className="scroll-mt-32 bg-[#f8f9fa] py-16 sm:py-20 lg:py-28">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Heading Section */}
         <div className="text-center mb-12">
-          <h1 className="text-3xl sm:text-4xl font-extrabold text-[#f39c12] mb-4 drop-shadow-md">
+          <h1 className="text-3xl sm:text-4xl font-extrabold text-yellow-500  mb-4 drop-shadow-md">
             Careers at GeoMatrix
           </h1>
           <p className="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto">
