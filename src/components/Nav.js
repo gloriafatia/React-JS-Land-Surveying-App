@@ -15,7 +15,7 @@ const Nav = ({ bannerRef, servicesRef, aboutRef, careersRef, footerRef }) => {
   };
 
   return (
-    <nav className="navbar fixed w-full top-0 left-0 z-50 backdrop-blur-md bg-white shadow-lg border-b border-white/20">
+    <nav className="navbar fixed w-full top-0 left-0 z-10 bg-white/10 backdrop-blur-md text-white">
       <div className="flex items-center justify-between h-16">
         {/* Logo */}
         <div className="navbar__left pl-4 sm:pl-6 md:pl-8 lg:pl-10">

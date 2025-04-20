@@ -6,8 +6,8 @@ import "swiper/css/effect-fade";
 import "swiper/css/autoplay";
 
 import banner1 from "../assets/rename.png";
-// import banner2 from "../assets/4.png";
-// import banner3 from "../assets/5.png";
+import banner2 from "../uraKukes/1.png";
+import banner3 from "../uraKukes/3.png";
 // import banner4 from "../assets/6.png";
 // import banner5 from "../assets/7.png";
 // import banner6 from "../assets/8.png";
@@ -22,9 +22,12 @@ const Banner = () => {
         effect="fade"
         loop={true}
         autoplay={{ delay: 4000, disableOnInteraction: false }}
-        className="absolute inset-0 z-0 h-full w-full"
+        className="absolute inset-0 z-[-1] h-full w-full"
       >
-        {[banner1 /*, banner2, banner3, banner4, banner5, banner6, banner7 */].map((img, index) => (
+        {[
+          banner1,
+          banner2, banner3,  /*banner4, banner5, banner6, banner7 */,
+        ].map((img, index) => (
           <SwiperSlide key={index} className="relative w-full h-full">
             <img
               src={img}
